@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  E-Market
 //
-//  Created by Dogukan Ali Gundogan on 3.10.2021.
+//  Created by Dogukan Ali Gundogan on 19.10.2021.
 //
 
 import UIKit

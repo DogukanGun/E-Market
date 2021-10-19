@@ -2,7 +2,7 @@
 //  CategoryCell.swift
 //  E-Market
 //
-//  Created by Dogukan Ali Gundogan on 4.10.2021.
+//  Created by Dogukan Ali Gundogan on 19.10.2021.
 //
 
 import Foundation

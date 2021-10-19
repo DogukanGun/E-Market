@@ -6,6 +6,7 @@ target 'E-Market' do
   use_frameworks!
   pod 'Firebase/Analytics'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
   # Pods for E-Market
 
 end

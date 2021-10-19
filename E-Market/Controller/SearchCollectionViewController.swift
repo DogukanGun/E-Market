@@ -2,7 +2,7 @@
 //  SearchCollectionViewController.swift
 //  E-Market
 //
-//  Created by Dogukan Ali Gundogan on 3.10.2021.
+//  Created by Dogukan Ali Gundogan on 19.10.2021.
 //
 
 import UIKit
@@ -14,7 +14,7 @@ class SearchCollectionViewController: UICollectionViewController {
     var categories:[Category]=[]
     private var selectedCategory:Category?
     var isDownloaded=false
-    private let itemsPerRow:CGFloat=3
+    private let itemsPerRow:CGFloat=2
     private let sectionInsets = UIEdgeInsets(top: 20.0, left: 10.0, bottom: 20.0, right: 10.0)
     
     
@@ -45,13 +45,12 @@ class SearchCollectionViewController: UICollectionViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ItemDetailTableViewController" {
-            let vc = segue.destination as? ItemDetailTableViewController
-            if let vc = vc{
-                vc.category=selectedCategory
-            }else{
-                // TODO: create error message model
-                NSLog("%s", "Empty Controller")
-            }
+            let senderCell = sender as! CategoryCell
+            selectedCategory = categories.first(where: { category in
+                category.name==senderCell.text.text
+            })
+            let vc = segue.destination as! ItemDetailTableViewController
+            vc.category=selectedCategory
         }
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -62,6 +61,8 @@ class SearchCollectionViewController: UICollectionViewController {
      
         return cell
     }
+    
+    
 
     
     // MARK: Download Categories

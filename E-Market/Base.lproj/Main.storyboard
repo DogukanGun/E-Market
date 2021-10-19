@@ -89,6 +89,7 @@
                                 <connections>
                                     <outlet property="image" destination="BiJ-Sl-AyP" id="ECf-qZ-7iD"/>
                                     <outlet property="text" destination="eom-ER-wbN" id="4M6-Eu-jZV"/>
+                                    <segue destination="dQM-gO-hqg" kind="show" identifier="ItemDetailTableViewController" id="ie9-0p-Wo3"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -98,9 +99,6 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Category" id="UfN-k7-OYZ"/>
-                    <connections>
-                        <segue destination="dQM-gO-hqg" kind="show" identifier="ItemDetailTableViewController" id="HQB-M2-Cvs"/>
-                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Feh-Rb-fg6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -175,7 +173,7 @@
                     <navigationItem key="navigationItem" id="6Dj-cB-G3u">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="1St-4m-vtA">
                             <connections>
-                                <segue destination="ywY-WX-5NU" kind="show" id="LRe-7m-6uj"/>
+                                <segue destination="ywY-WX-5NU" kind="show" identifier="AddItemViewController" id="LRe-7m-6uj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -218,6 +216,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eII-At-kun">
                                 <rect key="frame" x="120" y="596" width="174" height="30"/>
                                 <state key="normal" title="Choose Photo"/>
+                                <connections>
+                                    <action selector="cameraButtonPressed:" destination="ywY-WX-5NU" eventType="touchUpInside" id="s9d-qa-phA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9eM-7T-rp0"/>
@@ -233,7 +234,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Oqo-D0-2Q4">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="aHT-3A-NYD"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="aHT-3A-NYD">
+                            <connections>
+                                <action selector="doneBarButtonItemPressed:" destination="ywY-WX-5NU" id="V9O-zp-kQG"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="itemDescription" destination="kMG-H0-BN8" id="JsG-8t-Rcp"/>
