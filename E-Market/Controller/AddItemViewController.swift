@@ -11,7 +11,7 @@ import UIKit
 class AddItemViewController:UIViewController{
     @IBOutlet var itemName:UITextField!
     @IBOutlet var itemPrice:UITextField!
-    @IBOutlet var itemDescription:UITextView!
+    @IBOutlet var itemDescription:UITextField!
     @IBOutlet var takePhotoButton:UIButton!
     
     
@@ -60,10 +60,23 @@ class AddItemViewController:UIViewController{
         item.description = itemDescription.text
         item.price = Double(itemPrice.text!)!
         setItemLink(to: item)
-        popTheView()
-          
+        guard let mainView = navigationController?.parent?.view else{
+            return
+        }
+        let hudView = HudView.hudView(inView: mainView, animated: true)
+        showHideView(hudView: hudView)
          
      }
+    private func showHideView(hudView:HudView){
+        let delayInSecond = 1.5
+        do{
+            afterDelay(delayInSecond) {
+                hudView.hide()
+                self.navigationController?.popViewController(animated: true)
+            }
+        }catch{
+        }
+    }
     private func setItemLink(to item:Item){
         uploadImages(image: image, itemId: item.id) { imageLink in
             item.imageLink=imageLink
@@ -121,3 +134,7 @@ extension AddItemViewController : UIImagePickerControllerDelegate,UINavigationCo
         dismiss(animated: true, completion: nil)
     }
 }
+
+
+ 
+//TODO buraya delegate koy

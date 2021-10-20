@@ -29,3 +29,26 @@ func downloadCategories(completion: @escaping (_ categoryArray:[Category])->Void
         
     })
 }
+func downloadItems(from categoryId:String, completion: @escaping (_ categoryArray:[Item])->Void) {
+    var itemArray:[Item]=[]
+    
+    FirebaseReference(.Items).getDocuments(completion: {
+        (snapshot,error) in
+        
+        guard let snapshot = snapshot else{
+            completion(itemArray)
+            return
+        }
+        if !snapshot.isEmpty{
+            for itemDict in snapshot.documents{
+                let item = Item(dictionary: itemDict.data() as NSDictionary)
+                if item.categoryId == categoryId {
+                    itemArray.append(item)
+                }
+            }
+        }
+        
+        completion(itemArray)
+        
+    })
+}

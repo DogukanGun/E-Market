@@ -14,6 +14,8 @@
 		9E0BFEDC271EDD0F00E0D1FE /* CategoryCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BFEDB271EDD0F00E0D1FE /* CategoryCreate.swift */; };
 		9E0BFEDE271EDD4400E0D1FE /* FirebaseSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BFEDD271EDD4400E0D1FE /* FirebaseSave.swift */; };
 		9E0BFEE0271EDD7600E0D1FE /* FirebaseGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BFEDF271EDD7600E0D1FE /* FirebaseGet.swift */; };
+		9E0BFEE3271F5F9800E0D1FE /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BFEE2271F5F9800E0D1FE /* UIImage+Resize.swift */; };
+		9E0BFEE5271F70C100E0D1FE /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BFEE4271F70C000E0D1FE /* HudView.swift */; };
 		9E7BBDD0270B4C9B00AAB82C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E7BBDCF270B4C9B00AAB82C /* GoogleService-Info.plist */; };
 		9E7BBDD3270B50D000AAB82C /* FirebaseReferance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BBDD2270B50D000AAB82C /* FirebaseReferance.swift */; };
 		9E7BBDD6270B5C5600AAB82C /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7BBDD5270B5C5600AAB82C /* CategoryCell.swift */; };
@@ -38,6 +40,8 @@
 		9E0BFEDB271EDD0F00E0D1FE /* CategoryCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCreate.swift; sourceTree = "<group>"; };
 		9E0BFEDD271EDD4400E0D1FE /* FirebaseSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSave.swift; sourceTree = "<group>"; };
 		9E0BFEDF271EDD7600E0D1FE /* FirebaseGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGet.swift; sourceTree = "<group>"; };
+		9E0BFEE2271F5F9800E0D1FE /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
+		9E0BFEE4271F70C000E0D1FE /* HudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		9E7BBDCF270B4C9B00AAB82C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9E7BBDD2270B50D000AAB82C /* FirebaseReferance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReferance.swift; sourceTree = "<group>"; };
 		9E7BBDD5270B5C5600AAB82C /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 		9E0BFED5271EDCC300E0D1FE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9E0BFEE1271F5F8200E0D1FE /* Extension */,
 				9E0BFED9271EDCF400E0D1FE /* Firebase */,
 				9E0BFED6271EDCCD00E0D1FE /* Constant */,
 			);
@@ -118,6 +123,15 @@
 				9E0BFEDB271EDD0F00E0D1FE /* CategoryCreate.swift */,
 			);
 			path = MockDataCreate;
+			sourceTree = "<group>";
+		};
+		9E0BFEE1271F5F8200E0D1FE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9E0BFEE2271F5F9800E0D1FE /* UIImage+Resize.swift */,
+				9E0BFEE4271F70C000E0D1FE /* HudView.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		9E7BBDD1270B50C600AAB82C /* Helper */ = {
@@ -328,12 +342,14 @@
 				9E0BFE96271E03C800E0D1FE /* AddItemViewController.swift in Sources */,
 				9E7BBDD6270B5C5600AAB82C /* CategoryCell.swift in Sources */,
 				9E0BFED8271EDCDE00E0D1FE /* Constant.swift in Sources */,
+				9E0BFEE5271F70C100E0D1FE /* HudView.swift in Sources */,
 				9E0BFEDC271EDD0F00E0D1FE /* CategoryCreate.swift in Sources */,
 				9EAEC9E0270A0269002C3833 /* AppDelegate.swift in Sources */,
 				9E90BFD7270F82C90040ACF2 /* ItemDetailTableViewController.swift in Sources */,
 				9EAEC9E2270A0269002C3833 /* SceneDelegate.swift in Sources */,
 				9EAEC9FC270A1D84002C3833 /* Category.swift in Sources */,
 				9E0BFEDE271EDD4400E0D1FE /* FirebaseSave.swift in Sources */,
+				9E0BFEE3271F5F9800E0D1FE /* UIImage+Resize.swift in Sources */,
 				9E7BBDD3270B50D000AAB82C /* FirebaseReferance.swift in Sources */,
 				9E0BFED4271ECC6200E0D1FE /* FirebaseStorage.swift in Sources */,
 			);

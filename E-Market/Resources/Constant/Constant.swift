@@ -34,3 +34,10 @@ public let kDESCRIPTION = "description"
 public let kPRICE = "price"
 public let kIMAGELINK = "imageLink"
 
+
+
+func afterDelay(_ seconds:Double, run:@escaping () -> Void){
+    DispatchQueue.main.asyncAfter(deadline: .now()+seconds) {
+        run()
+    }
+}
