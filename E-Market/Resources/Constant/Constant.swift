@@ -41,3 +41,7 @@ func afterDelay(_ seconds:Double, run:@escaping () -> Void){
         run()
     }
 }
+
+var categories:[Category]!
+    
+

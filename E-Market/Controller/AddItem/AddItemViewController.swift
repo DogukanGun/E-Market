@@ -8,16 +8,82 @@
 import Foundation
 import UIKit
 
+
+struct AddItemViewControllerCategoryVariables{
+    var categories:[Category]=[]
+    var selectedCategoryIndex=0
+    
+    var selectedCategoryItem:Category{
+        return categories[selectedCategoryIndex]
+    }
+}
+struct AddItemViewControllerVariables {
+    static let topInset = CGFloat(40)
+    static let bottomInset = CGFloat(40)
+    static let leftInset = CGFloat(0)
+    static let rigthInset = CGFloat(0)
+}
 class AddItemViewController:UIViewController{
     @IBOutlet var itemName:UITextField!
     @IBOutlet var itemPrice:UITextField!
     @IBOutlet var itemDescription:UITextField!
     @IBOutlet var takePhotoButton:UIButton!
-    
-    
+    @IBOutlet weak var pickerViewButton: UIButton!
+    @IBOutlet var datePicker:UIDatePicker!
+    @IBOutlet var scrollView:UIScrollView!
+    let screenWidth = UIScreen.main.bounds.width - 10
+    let screenHeight = UIScreen.main.bounds.height / 2
+    var pickerView:UIPickerView!
     var image:UIImage!
-    var category:Category!
     
+    
+ 
+    var categoryVariables = AddItemViewControllerCategoryVariables()
+    
+    override func viewDidLoad() {
+        self.pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width:self.screenWidth, height:self.screenHeight))
+        downloadCategories { category in
+            self.categoryVariables.categories=category
+            self.pickerView.reloadAllComponents()
+         }
+        self.scrollView.contentInset = UIEdgeInsets(top:AddItemViewControllerVariables.topInset ,
+                                                    left: AddItemViewControllerVariables.leftInset,
+                                                    bottom: AddItemViewControllerVariables.bottomInset,
+                                                    right: AddItemViewControllerVariables.rigthInset);
+         
+        
+    }
+    
+    @IBAction func popUpPicker(_ sender: Any)
+        {
+            let vc = UIViewController()
+            vc.preferredContentSize = CGSize(width: screenWidth, height: screenHeight)
+            pickerView.dataSource = self
+            pickerView.delegate = self
+            
+            pickerView.selectRow(categoryVariables.selectedCategoryIndex, inComponent: 0, animated: false)
+ 
+            vc.view.addSubview(pickerView)
+            pickerView.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor).isActive = true
+            pickerView.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor).isActive = true
+            
+            let alert = UIAlertController(title: "Select Category", message: "", preferredStyle: .actionSheet)
+            
+            alert.popoverPresentationController?.sourceView = pickerViewButton
+            alert.popoverPresentationController?.sourceRect = pickerViewButton.bounds
+            
+            alert.setValue(vc, forKey: "contentViewController")
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (UIAlertAction) in
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Select", style: .default, handler: { (UIAlertAction) in
+                self.categoryVariables.selectedCategoryIndex = self.pickerView.selectedRow(inComponent: 0)
+                 self.pickerViewButton.setTitle(self.categoryVariables.selectedCategoryItem.name, for: .normal)
+             }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+     
     //MARK: IBActions
     
     @IBAction func doneBarButtonItemPressed(_ sender: Any) {
@@ -56,7 +122,7 @@ class AddItemViewController:UIViewController{
         let item = Item()
         item.id = UUID().uuidString
         item.name = itemName.text!
-        item.categoryId = category.id
+        item.categoryId = categoryVariables.selectedCategoryItem.id
         item.description = itemDescription.text
         item.price = Double(itemPrice.text!)!
         setItemLink(to: item)
@@ -135,6 +201,20 @@ extension AddItemViewController : UIImagePickerControllerDelegate,UINavigationCo
     }
 }
 
-
  
-//TODO buraya delegate koy
+
+extension AddItemViewController:UIPickerViewDelegate,UIPickerViewDataSource{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categoryVariables.categories.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categoryVariables.categories[row].name
+    }
+    
+     
+}

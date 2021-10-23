@@ -11,26 +11,52 @@ import UIKit
 struct ItemDetailTableViewControllerVariables {
     static let cellIdentifier="ItemDetailTableViewCell"
     static let nibName="ItemCell"
+    
 }
 class ItemDetailTableViewController:UIViewController{
     
     @IBOutlet var tableView:UITableView!
+    @IBOutlet var segmentedControl:UISegmentedControl!
     var category:Category!
     var items:[Item]=[]
+    var backupItems:[Item]!
     
+    
+    @IBAction func segmentedControlItemSelected(_ sender:Any){
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            orderList(with:0, for:&items,default:backupItems)
+        case 1:
+            orderList(with:1, for:&items,default:backupItems)
+        case 2:
+            orderList(with:2, for:&items,default:backupItems)
+        default:
+            break
+        }
+        tableView.reloadData()
+    }
+     
     override func viewDidAppear(_ animated: Bool) {
         self.tableView.delegate=self
         self.tableView.dataSource=self
         downloadItems(from: category.id) { itemsFromFirebase in
             self.items=itemsFromFirebase
+            self.backupItems=itemsFromFirebase
             self.tableView.reloadData()
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddItemViewController"{
-            let vc = segue.destination as! AddItemViewController
-            vc.category=category
+        if segue.identifier == "ItemDetailViewController"{
+ 
+            if let index = tableView.indexPathForSelectedRow?.row{
+                let item = items[index]
+                let vc = segue.destination as! ItemDetailViewController
+
+                 vc.item = item
+                
+             } 
+            
         }
     }
 }
