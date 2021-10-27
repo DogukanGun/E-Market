@@ -33,8 +33,8 @@ public let kCATEGORYID = "categoryId"
 public let kDESCRIPTION = "description"
 public let kPRICE = "price"
 public let kIMAGELINK = "imageLink"
-
-
+public let kISDELETED = "isDeleted"
+public let kCREATEDDATE = "createdDate"
 
 func afterDelay(_ seconds:Double, run:@escaping () -> Void){
     DispatchQueue.main.asyncAfter(deadline: .now()+seconds) {

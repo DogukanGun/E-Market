@@ -104,13 +104,14 @@ extension SearchItemViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = items[indexPath.row]
-        
-        let vc = storyboard?.instantiateViewController(withIdentifier: "ItemDetailViewController") as! ItemDetailViewController
-
-         vc.item = item
-        
-        navigationController?.pushViewController(vc, animated: true)
+//        let item = items[indexPath.row]
+//
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "ItemDetailViewController") as! ItemDetailViewController
+//
+//         vc.item = item
+//
+//        navigationController?.pushViewController(vc, animated: true)
+        performSegue(withIdentifier: "ItemDetailViewControllerFromSearch", sender: tableView.cellForRow(at:indexPath))
         
         
     }
@@ -134,6 +135,7 @@ extension SearchItemViewController:UITableViewDelegate,UITableViewDataSource{
         
         
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -143,16 +145,18 @@ extension SearchItemViewController:UITableViewDelegate,UITableViewDataSource{
 
 extension SearchItemViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //    if segue.identifier=="MovieDetailbySearch"{
-        //        let vc=segue.destination as! MovieDetailViewController
-        //        guard let cell = sender as? MovieTableViewCell else {
-        //            return
-        //        }
-        //        guard let index = tableView.indexPath(for: cell) else {
-        //            return
-        //        }
-        //        vc.movie=movies[index.row]
-        //    }
+            if segue.identifier=="ItemDetailViewControllerFromSearch"{
+                let vc=segue.destination as! ItemDetailViewController
+                guard let cell = sender as? ItemTableViewCell else {
+                    return
+                }
+                guard let index = tableView.indexPath(for: cell) else {
+                    return
+                }
+                vc.item=items[index.row]
+            }
+        
+        
     }
 }
 

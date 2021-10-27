@@ -14,6 +14,8 @@ class Item {
     var description:String!
     var price:Double!
     var imageLink:String!
+    var isDeleted:Bool!
+    var createdDate:String!
     
     init(dictionary:NSDictionary) {
         self.id=dictionary[kOBJECTID] as! String
@@ -22,6 +24,8 @@ class Item {
         self.description=dictionary[kDESCRIPTION] as! String
         self.price=dictionary[kPRICE] as! Double
         self.imageLink=dictionary[kIMAGELINK] as! String
+        self.isDeleted=dictionary[kISDELETED] as! Bool
+        self.createdDate=dictionary[kCREATEDDATE] as! String
     }
     init() {
         
@@ -34,6 +38,6 @@ class Item {
 
 func itemDictionaryFrom(_ item: Item) -> NSDictionary {
     
-    return NSDictionary(objects: [item.id,item.categoryId, item.name, item.description,item.price,item.imageLink], forKeys: [kOBJECTID as NSCopying, kCATEGORYID as NSCopying, kNAME as NSCopying, kDESCRIPTION as NSCopying, kPRICE as NSCopying, kIMAGELINK as NSCopying])
+    return NSDictionary(objects: [item.id,item.categoryId, item.name, item.description,item.price,item.imageLink,item.isDeleted,item.createdDate], forKeys: [kOBJECTID as NSCopying, kCATEGORYID as NSCopying, kNAME as NSCopying, kDESCRIPTION as NSCopying, kPRICE as NSCopying, kIMAGELINK as NSCopying,kISDELETED as NSCopying,kCREATEDDATE as NSCopying])
 }
 

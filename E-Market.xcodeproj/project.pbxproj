@@ -31,6 +31,8 @@
 		9EAEC9FA270A0764002C3833 /* SearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAEC9F9270A0764002C3833 /* SearchCollectionViewController.swift */; };
 		9EAEC9FC270A1D84002C3833 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAEC9FB270A1D84002C3833 /* Category.swift */; };
 		9ED7BFA22724A67D00D6D60F /* Array+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7BFA12724A67D00D6D60F /* Array+Sort.swift */; };
+		9EDB9FE92729D26600B292A4 /* FirebaseDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDB9FE82729D26600B292A4 /* FirebaseDelete.swift */; };
+		9EDB9FEB2729DB4C00B292A4 /* EditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDB9FEA2729DB4C00B292A4 /* EditItemViewController.swift */; };
 		9EEF70212721635800B7E39A /* SearchItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEF70202721635800B7E39A /* SearchItemViewController.swift */; };
 		9EEF70262721659100B7E39A /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EEF70242721659100B7E39A /* ItemTableViewCell.swift */; };
 		9EEF70272721659100B7E39A /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EEF70252721659100B7E39A /* ItemTableViewCell.xib */; };
@@ -65,6 +67,8 @@
 		9EAEC9F9270A0764002C3833 /* SearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewController.swift; sourceTree = "<group>"; };
 		9EAEC9FB270A1D84002C3833 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		9ED7BFA12724A67D00D6D60F /* Array+Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Sort.swift"; sourceTree = "<group>"; };
+		9EDB9FE82729D26600B292A4 /* FirebaseDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDelete.swift; sourceTree = "<group>"; };
+		9EDB9FEA2729DB4C00B292A4 /* EditItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemViewController.swift; sourceTree = "<group>"; };
 		9EEF70202721635800B7E39A /* SearchItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemViewController.swift; sourceTree = "<group>"; };
 		9EEF70242721659100B7E39A /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		9EEF70252721659100B7E39A /* ItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 				9E0BFED3271ECC6200E0D1FE /* FirebaseStorage.swift */,
 				9E0BFEDD271EDD4400E0D1FE /* FirebaseSave.swift */,
 				9E0BFEDF271EDD7600E0D1FE /* FirebaseGet.swift */,
+				9EDB9FE82729D26600B292A4 /* FirebaseDelete.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 			children = (
 				9E90BFD6270F82C90040ACF2 /* ItemDetailTableViewController.swift */,
 				9EAEC9F9270A0764002C3833 /* SearchCollectionViewController.swift */,
+				9EDB9FEA2729DB4C00B292A4 /* EditItemViewController.swift */,
 			);
 			path = ProductsTab;
 			sourceTree = "<group>";
@@ -392,6 +398,7 @@
 				9E7BBDD6270B5C5600AAB82C /* CategoryCell.swift in Sources */,
 				9EEF702A2722E9CE00B7E39A /* ItemDetailViewController.swift in Sources */,
 				9E0BFED8271EDCDE00E0D1FE /* Constant.swift in Sources */,
+				9EDB9FE92729D26600B292A4 /* FirebaseDelete.swift in Sources */,
 				9E0BFEE5271F70C100E0D1FE /* HudView.swift in Sources */,
 				9E0BFEDC271EDD0F00E0D1FE /* CategoryCreate.swift in Sources */,
 				9EAEC9E0270A0269002C3833 /* AppDelegate.swift in Sources */,
@@ -402,6 +409,7 @@
 				9E0BFEDE271EDD4400E0D1FE /* FirebaseSave.swift in Sources */,
 				9E0BFEE3271F5F9800E0D1FE /* UIImage+Resize.swift in Sources */,
 				9ED7BFA22724A67D00D6D60F /* Array+Sort.swift in Sources */,
+				9EDB9FEB2729DB4C00B292A4 /* EditItemViewController.swift in Sources */,
 				9E7BBDD3270B50D000AAB82C /* FirebaseReferance.swift in Sources */,
 				9E0BFED4271ECC6200E0D1FE /* FirebaseStorage.swift in Sources */,
 			);

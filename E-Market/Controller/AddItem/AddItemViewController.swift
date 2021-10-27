@@ -35,6 +35,7 @@ class AddItemViewController:UIViewController{
     let screenHeight = UIScreen.main.bounds.height / 2
     var pickerView:UIPickerView!
     var image:UIImage!
+    var date=Date()
     
     
  
@@ -94,6 +95,7 @@ class AddItemViewController:UIViewController{
             saveToFirebase()
         } else {
             print("Error all fields are required")
+            showAlert()
             //TODO: SHow error to the user
 
         }
@@ -110,7 +112,9 @@ class AddItemViewController:UIViewController{
         
         return (itemName.text != "" && itemPrice.text != "" && itemDescription.text != "")
     }
-    
+    @IBAction func datePicked(){
+        date = datePicker.date
+    }
     private func popTheView() {
          self.navigationController?.popViewController(animated: true)
      }
@@ -119,20 +123,32 @@ class AddItemViewController:UIViewController{
      //MARK: Save Item
      private func saveToFirebase() {
          
-        let item = Item()
-        item.id = UUID().uuidString
-        item.name = itemName.text!
-        item.categoryId = categoryVariables.selectedCategoryItem.id
-        item.description = itemDescription.text
-        item.price = Double(itemPrice.text!)!
-        setItemLink(to: item)
-        guard let mainView = navigationController?.parent?.view else{
-            return
+        do{
+            let item = Item()
+            item.id = UUID().uuidString
+            item.name = itemName.text!
+            item.categoryId = categoryVariables.selectedCategoryItem.id
+            item.description = itemDescription.text
+            item.price = Double(itemPrice.text!)!
+            item.isDeleted=false
+            var dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMM dd, YYYY"
+            item.createdDate = dateFormatter.string(from: datePicker.date)
+            setItemLink(to: item)
+            let hudView = HudView.hudView(inView: self.view, animated: true)
+            showHideView(hudView: hudView)
+        }catch{
+            showAlert()
         }
-        let hudView = HudView.hudView(inView: mainView, animated: true)
-        showHideView(hudView: hudView)
+        
          
      }
+    private func showAlert(){
+        let alert = UIAlertController(title: "Opppss", message: "Please fill all fields", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Okey", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
     private func showHideView(hudView:HudView){
         let delayInSecond = 1.5
         do{

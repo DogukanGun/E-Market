@@ -42,7 +42,7 @@ func downloadItems(from categoryId:String, completion: @escaping (_ categoryArra
         if !snapshot.isEmpty{
             for itemDict in snapshot.documents{
                 let item = Item(dictionary: itemDict.data() as NSDictionary)
-                if item.categoryId == categoryId {
+                if item.categoryId == categoryId && !item.isDeleted{
                     itemArray.append(item)
                 }
             }
