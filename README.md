@@ -20,3 +20,8 @@
 - "E-Market.xcworkspace" adlı beyaz renkte olan proje dosyasına basın ve uygulama çalışacaktır.
 
 - Direk XCode üzerinden çalıştırırsanız cocoapodslar proje tarafından görünmeyecek ve uygulama çalışmayacaktır.
+
+
+## Design Pattern 
+
+Pattern'i genel proje yapısında kullandım. Projeyi MVC Pattern'e göre kodladım. 
